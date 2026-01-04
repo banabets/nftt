@@ -1,0 +1,2524 @@
+/* Component Styles */
+
+/* Noise Background */
+.noise {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  opacity: 0.04;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.65'/%3E%3C/svg%3E");
+  background-size: 260px 260px;
+  z-index: var(--z-noise);
+}
+
+/* Topbar */
+.topbar {
+  position: sticky;
+  top: 20px;
+  z-index: var(--z-topbar);
+  padding: 16px 24px;
+  background: #ffffff;
+  border-bottom: 2px solid var(--twitter-blue);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(12px);
+  max-width: 1200px;
+  margin: 20px auto 0 auto;
+  border-radius: 25px;
+}
+
+.topbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-lg);
+  flex-wrap: wrap;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+.site {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.site strong {
+  color: var(--ink);
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 1.1em;
+}
+
+.sat {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  border: 3px solid var(--border);
+  background: linear-gradient(135deg, var(--yellow) 0%, #f59e0b 100%);
+  box-shadow: var(--shadow2);
+  border-radius: 999px;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 99px;
+  background: var(--red);
+  border: 2px solid var(--border);
+}
+
+/* Hero Section */
+/*
+  NEWSPAPER-STYLE DESIGN - TO REVERT: Comment out this entire block (from /* NEWSPAPER-STYLE to */)
+  This transforms the hero container into a newspaper-style layout while preserving colors
+*/
+.hero {
+  margin-top: var(--space-lg);
+  border: 8px solid var(--ink); /* Harmonized border */
+  background:
+    linear-gradient(135deg, var(--yellow) 0%, #f59e0b 50%, var(--yellow) 100%);
+  background-color: var(--yellow); /* Harmonized yellow background */
+  box-shadow:
+    0 0 0 2px rgba(255, 255, 255, 0.8),
+    0 8px 25px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius); /* Rounded corners for modern look */
+  overflow: hidden;
+  position: relative;
+  /* Newspaper texture overlay */
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(0,0,0,0.05) 1px, transparent 0);
+  background-size: 20px 20px;
+}
+
+.hero-top {
+  padding: var(--space-2xl) var(--space-2xl) var(--space-sm);
+  border-bottom: 12px solid #000; /* Thick black newspaper dividing line */
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.15), transparent 40%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.12), transparent 50%),
+    var(--yellow);
+  position: relative;
+}
+
+/* Newspaper-style fold line */
+.hero-top::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #fff, transparent);
+}
+
+.h1 {
+  margin: 0;
+  font-family: var(--font-secondary);
+  font-weight: 700;
+  font-size: clamp(42px, 6vw, 82px);
+  line-height: 0.9;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.25);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+}
+
+.sub {
+  margin: var(--space-sm) 0 0;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 14px;
+  font-size: 14px;
+}
+
+.sub[behavior="scroll"] {
+  background: rgba(0, 0, 0, 0.1);
+  padding: 8px 0;
+  border-radius: 4px;
+  color: var(--text);
+}
+
+.hero-mid {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.2), transparent 60%), #efe6d2;
+  padding: var(--space-lg) var(--space-md) var(--space-lg);
+  position: relative;
+}
+
+.poster {
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  position: relative;
+}
+
+.poster-inner {
+  display: block;
+  min-height: 280px;
+}
+
+.poster-left {
+  padding: var(--space-lg);
+  position: relative;
+  background: transparent;
+}
+
+.poster-left.full-width {
+  width: 100%;
+  border-right: none;
+}
+
+.meme-text {
+  padding: var(--space-lg);
+  background: #f9f9f9;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  color: #333;
+  text-align: left;
+  font-size: 16px;
+}
+
+.meme-text p {
+  margin: 0 0 var(--space-md) 0;
+  font-family: var(--font-primary);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--ink);
+  text-align: center;
+  font-weight: 600;
+  text-shadow: none;
+}
+
+.meme-text p:last-child {
+  margin-bottom: 0;
+}
+
+/* Simple header */
+.breaking-news-header {
+  margin-bottom: var(--space-xl);
+  text-align: center;
+}
+
+.breaking-news-header .st.breaking-title {
+  position: static;
+  transform: none;
+  display: inline-block;
+  margin-bottom: var(--space-lg);
+  font-size: 36px;
+  font-weight: 900;
+  color: #000000;
+  text-shadow: none;
+  font-family: 'Arial Black', Arial, sans-serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.breaking-news-header .st.breaking-marquee {
+  position: static;
+  transform: none;
+  display: block;
+  margin: 0 auto;
+  max-width: 600px;
+  background: #f0f0f0;
+  border: 2px solid #000000;
+  padding: 10px 15px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #000000;
+  overflow: hidden;
+}
+
+/* Twitter/X Style Background */
+body {
+  background: var(--bg);
+}
+
+/* Memecoin Hero Section */
+.hero-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+  position: relative;
+  z-index: 1;
+}
+
+/* Two Column Layout */
+.hero-two-column {
+  display: flex;
+  gap: var(--space-2xl);
+  align-items: flex-start;
+  margin-bottom: var(--space-xl);
+  justify-content: center;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-left {
+  flex: 1;
+  min-width: 400px;
+}
+
+.hero-right {
+  flex: 1;
+  min-width: 400px;
+  display: flex;
+  justify-content: center;
+}
+
+/* TV-Style Container */
+.tv-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+}
+
+.tv-screen {
+  position: relative;
+  width: 100%;
+  height: 450px;
+  background: #000;
+  border: 8px solid #2a2a2a;
+  border-radius: 15px;
+  box-shadow:
+    0 0 0 4px #111,
+    0 10px 30px rgba(0, 0, 0, 0.5),
+    inset 0 0 50px rgba(0, 0, 0, 0.8);
+  overflow: hidden;
+  animation: breakingNewsPulse 3s ease-in-out infinite;
+}
+
+.tv-screen::before {
+  content: "LIVE";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #dc2626;
+  color: #ffffff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.5);
+  animation: liveBlink 2s ease-in-out infinite;
+}
+
+.tv-screen::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 3px solid #FDC700;
+  border-radius: 12px;
+  pointer-events: none;
+  animation: breakingNewsBorderGold 4s ease-in-out infinite;
+  z-index: 5;
+}
+
+.tv-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  /* Ensure video loops properly */
+  pointer-events: none;
+}
+
+.tv-breaking-overlay {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.8);
+  border: 3px solid #ff0000;
+  border-radius: 8px;
+  padding: 12px 16px;
+  backdrop-filter: blur(5px);
+  z-index: 10;
+}
+
+.tv-breaking-content {
+  text-align: center;
+}
+
+.tv-breaking-label {
+  background: #ff0000;
+  color: #ffffff;
+  font-weight: 900;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  display: inline-block;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(255, 0, 0, 0.4);
+}
+
+.tv-breaking-text {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 16px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.tv-stand {
+  display: none;
+}
+
+/* Breaking News Logo */
+.breaking-news-logo {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+  animation: logoFadeIn 1s ease-out;
+  position: relative;
+}
+
+.chat-social-icons {
+  display: flex;
+  justify-content: center;
+  margin: 30px auto 0 auto;
+  max-width: 1200px;
+  padding: 20px;
+}
+
+.chat-social-icons .social-icons {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.chat-social-icons .social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  transition: all 0.3s ease;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.chat-social-icons .social-icon:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: #ffffff;
+  transform: scale(1.1) translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.chat-social-icons .social-icon.twitter:hover {
+  background: #1da1f2;
+  border-color: #1da1f2;
+  box-shadow: 0 6px 20px rgba(29, 161, 242, 0.4);
+}
+
+.chat-social-icons .social-icon.telegram:hover {
+  background: #0088cc;
+  border-color: #0088cc;
+  box-shadow: 0 6px 20px rgba(0, 136, 204, 0.4);
+}
+
+.logo-image {
+  max-width: 400px;
+  height: auto;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+  transition: transform 0.3s ease;
+}
+
+.logo-image:hover {
+  transform: scale(1.05);
+}
+
+@keyframes logoFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* CNN-Style Breaking News Bar */
+.cnn-breaking-bar {
+  background: #000000;
+  border: none;
+  border-radius: 16px;
+  padding: 16px 24px;
+  margin: 20px 0;
+  width: 100%;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  color: #ffffff;
+}
+
+.cnn-breaking-content {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.cnn-breaking-label {
+  background: #dc2626;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 6px 12px;
+  border-radius: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: 'Arial', sans-serif;
+  white-space: nowrap;
+}
+
+.cnn-breaking-ticker {
+  flex: 1;
+  background: #ffffff;
+  border-radius: 0;
+  padding: 8px 12px;
+  overflow: hidden;
+  border: 1px solid #cccccc;
+}
+
+.cnn-ticker-content {
+  display: inline-block;
+  white-space: nowrap;
+  animation: cnnTickerScroll 90s linear infinite;
+}
+
+.cnn-ticker-text {
+  font-weight: 600;
+  font-size: 16px;
+  color: #000000;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-family: 'Arial', sans-serif;
+}
+
+@keyframes cnnTickerScroll {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+.breaking-news-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(220, 38, 38, 0.9) 0%,
+    rgba(0, 0, 0, 0.7) 50%,
+    rgba(220, 38, 38, 0.9) 100%
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: var(--space-xl);
+}
+
+.breaking-badge {
+  margin-bottom: var(--space-lg);
+}
+
+.breaking-flash {
+  display: inline-block;
+  background: linear-gradient(45deg, #fbbf24, #f59e0b);
+  color: #000000;
+  font-weight: 900;
+  font-size: 18px;
+  padding: 8px 16px;
+  border-radius: 25px;
+  margin-bottom: var(--space-md);
+  box-shadow: 0 4px 15px rgba(251, 191, 36, 0.3);
+  animation: flash 1.5s ease-in-out infinite alternate;
+}
+
+.breaking-text {
+  color: #ffffff;
+  font-size: 48px;
+  font-weight: 900;
+  font-family: 'Arial Black', Arial, sans-serif;
+  text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.8);
+  letter-spacing: 2px;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.meme-tagline {
+  color: #fbbf24;
+  font-size: 24px;
+  font-weight: 700;
+  font-family: 'Segoe UI', sans-serif;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  max-width: 600px;
+}
+
+.meme-content {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: var(--space-xl);
+  margin-bottom: var(--space-xl);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e0e0e0;
+}
+
+/* Twitter/X Tweet Styles */
+.tweet-container {
+  background: #ffffff !important;
+  border: 1px solid #e1e8ed;
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 16px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  max-width: 598px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.tweet-container:hover {
+  background: #f7f9fa;
+  border-color: #cfd9de;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.tweet-header {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 4px;
+}
+
+.tweet-avatar {
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.avatar-image {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid #e1e8ed;
+  object-fit: cover;
+  transition: border-color 0.2s ease;
+}
+
+.tweet-container:hover .avatar-image {
+  border-color: #1da1f2;
+}
+
+.tweet-user-info {
+  flex: 1;
+}
+
+.tweet-name {
+  font-weight: 700;
+  font-size: 15px;
+  color: #14171a;
+  line-height: 1.2;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 2px;
+}
+
+.verified-badge {
+  flex-shrink: 0;
+  margin-left: 2px;
+}
+
+.tweet-handle {
+  font-size: 14px;
+  color: #536471;
+  line-height: 1.2;
+  text-align: left;
+}
+
+.tweet-menu {
+  font-size: 18px;
+  color: #536471;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.tweet-menu:hover {
+  background-color: rgba(29, 161, 242, 0.1);
+  color: #1da1f2;
+}
+
+.tweet-content {
+  margin-bottom: 8px;
+}
+
+.tweet-text {
+  font-size: 15px;
+  line-height: 1.4;
+  color: #14171a;
+  margin: 0 0 10px 0;
+  word-wrap: break-word;
+  white-space: normal;
+  text-align: left;
+  text-indent: 0;
+}
+
+.tweet-text:last-child {
+  margin-bottom: 8px;
+}
+
+.tweet-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  padding-top: 20px;
+}
+
+.tweet-time {
+  font-size: 14px;
+  color: #536471;
+}
+
+.tweet-stats {
+  font-size: 14px;
+  color: #536471;
+}
+
+.stat {
+  font-size: 14px;
+  color: #657786;
+}
+
+.tweet-actions {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 4px;
+}
+
+.tweet-action {
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #536471;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.tweet-action:hover {
+  background-color: rgba(29, 161, 242, 0.1);
+  color: #1da1f2;
+}
+
+.story-title-container {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+}
+
+.story-title {
+  background: #000000;
+  color: #ffffff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.meme-story {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+.meme-title {
+  font-size: 42px;
+  font-weight: 900;
+  color: #dc2626;
+  margin-bottom: var(--space-lg);
+  font-family: 'Arial Black', Arial, sans-serif;
+  text-shadow: 2px 2px 0px rgba(255, 255, 255, 0.8);
+  transform: rotate(-1deg);
+  display: inline-block;
+  text-align: center;
+  background: #ffffff;
+  border: 3px solid #dc2626;
+  border-radius: 15px;
+  padding: 15px 25px;
+  box-shadow: 0 4px 15px rgba(220, 38, 38, 0.2);
+}
+
+.meme-description {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #000000;
+  max-width: 700px;
+  margin: 0 auto var(--space-xl);
+  font-family: 'Georgia', serif;
+  background: #ffffff;
+  padding: var(--space-lg);
+  border-radius: 8px;
+  border: 1px solid #cccccc;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.meme-stats {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-xl);
+  margin-bottom: var(--space-xl);
+  flex-wrap: wrap;
+}
+
+.stat-item {
+  text-align: center;
+  padding: var(--space-lg);
+  background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+  border-radius: 12px;
+  border: 2px solid #d1d5db;
+  min-width: 120px;
+}
+
+.stat-number {
+  display: block;
+  font-size: 28px;
+  font-weight: 900;
+  color: #dc2626;
+  margin-bottom: var(--space-xs);
+}
+
+.stat-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.meme-actions {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-lg);
+  flex-wrap: wrap;
+}
+
+.btn-meme-primary, .btn-meme-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-lg) var(--space-xl);
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 2px solid #000000;
+  font-family: 'Arial', sans-serif;
+}
+
+.btn-meme-primary {
+  background: #dc2626;
+  color: #ffffff;
+}
+
+.btn-meme-primary:hover {
+  background: #b91c1c;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(220, 38, 38, 0.3);
+}
+
+.btn-meme-secondary {
+  background: #ffffff;
+  color: #000000;
+  border-color: #000000;
+}
+
+.btn-meme-secondary:hover {
+  background: #f9f9f9;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.btn-icon {
+  font-size: 20px;
+}
+
+@keyframes flash {
+  0% { opacity: 1; }
+  100% { opacity: 0.7; }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 0 var(--space-md);
+  }
+
+  .hero-two-column {
+    flex-direction: column;
+    gap: var(--space-xl);
+  }
+
+  .hero-left, .hero-right {
+    min-width: auto;
+  }
+
+  .tv-container {
+    max-width: 100%;
+  }
+
+  .tv-screen {
+    height: 350px;
+  }
+
+  .meme-title {
+    font-size: 28px;
+  }
+
+  .meme-description {
+    font-size: 18px;
+  }
+
+  .meme-stats {
+    gap: var(--space-md);
+  }
+
+  .stat-item {
+    min-width: 100px;
+    padding: var(--space-md);
+  }
+
+  .meme-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn-meme-primary, .btn-meme-secondary {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+  }
+}
+
+.breaking-news-alert {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  background: #fff8dc;
+  border: 2px solid #ffa500;
+  border-radius: 8px;
+  padding: 12px 16px;
+  box-shadow: 0 4px 12px rgba(255, 165, 0, 0.2);
+  z-index: 15;
+}
+
+.alert-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.breaking-label {
+  background: #dc2626;
+  color: #ffffff;
+  font-weight: 900;
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 0;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-family: 'Times New Roman', serif;
+  white-space: nowrap;
+  border: 1px solid #b91c1c;
+}
+
+.alert-text {
+  color: #1f2937;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.3;
+  font-family: 'Times New Roman', serif;
+  text-align: center;
+}
+
+@keyframes breakingPulse {
+  0% { box-shadow: 0 4px 12px rgba(220, 38, 38, 0.4); }
+  100% { box-shadow: 0 4px 16px rgba(220, 38, 38, 0.6); }
+}
+
+.silhouette {
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+  margin: 0 auto;
+  position: relative;
+  border-radius: 8px;
+  background: #000;
+  padding: 20px;
+  box-shadow:
+    0 0 0 4px #333,
+    0 0 0 8px #111,
+    0 10px 30px rgba(0, 0, 0, 0.7);
+}
+
+/* TV Screen */
+.silhouette::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  border-radius: 4px;
+  background: transparent;
+  border: 4px solid #222;
+  box-shadow:
+    inset 0 0 30px rgba(0, 0, 0, 0.6),
+    0 0 15px rgba(0, 0, 0, 0.4);
+}
+
+/* TV Base/Stand */
+
+.stickers {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  right: 25px;
+  bottom: 25px;
+  pointer-events: none;
+}
+
+.st {
+  position: absolute;
+  padding: var(--space-sm) var(--space-md);
+  border: 4px solid var(--border);
+    border-radius: calc(var(--radius) - 2px);
+  box-shadow: var(--shadow2);
+  transform: rotate(-6deg);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 14px;
+  background: #fff;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+}
+
+.st.one {
+  left: var(--space-sm);
+  top: var(--space-xs);
+  background: rgba(255, 255, 255, 0.9) url('/nft.png') center center / contain no-repeat;
+}
+
+.st.two {
+  right: var(--space-sm);
+  top: var(--space-md);
+  background: rgba(217, 255, 239, 0.9);
+  transform: rotate(7deg);
+}
+
+.st.breaking-title {
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-2deg);
+  background: linear-gradient(135deg, #ff0000 0%, #cc0000 100%);
+  border: 4px solid #ffffff;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 18px;
+  font-weight: 900;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 4px 12px rgba(255, 0, 0, 0.4);
+  z-index: 25;
+  white-space: nowrap;
+}
+
+.st.breaking-marquee {
+  top: 80px;
+  left: 20px;
+  right: 20px;
+  transform: rotate(0.5deg);
+  background: linear-gradient(135deg, #0066cc 0%, #004499 100%);
+  border: 3px solid #ffffff;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 3px 8px rgba(0, 102, 204, 0.3);
+  z-index: 25;
+}
+
+.st.breaking-marquee marquee {
+  margin: 0;
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  text-shadow: inherit;
+}
+
+.st.main {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  transform: none;
+  background: linear-gradient(90deg, #ff0000 0%, #cc0000 100%);
+  border: 3px solid #fff;
+  border-radius: 0;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 900;
+  font-family: Arial, sans-serif;
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  line-height: 1.2;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+  z-index: 15;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  white-space: normal;
+  line-height: 1.1;
+}
+
+/* NFT Logo Styles */
+.nft-logo {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.main-logo {
+  width: 120px;
+  height: auto;
+  transform: rotate(-6deg);
+  filter: drop-shadow(var(--shadow2));
+}
+
+.header-logo {
+  width: 80px;
+  height: 80px;
+}
+
+.social-icons {
+  display: flex;
+  gap: var(--space-sm);
+  align-items: center;
+}
+
+.social-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: #ffffff;
+  color: var(--muted);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border: 1px solid var(--border);
+  margin-left: 8px;
+}
+
+.social-icons a:hover {
+  background: var(--twitter-blue);
+  color: #ffffff;
+  transform: scale(1.05);
+  box-shadow: 0 2px 8px rgba(253, 199, 0, 0.3);
+}
+
+.social-icons svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
+.poster-right {
+  padding: var(--space-lg);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.12), transparent 55%),
+    #faf7ee;
+  position: relative;
+}
+
+.bigbtn {
+  width: 100%;
+  border: 5px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--red);
+  color: #fff;
+  padding: var(--space-xl) var(--space-lg);
+  font-size: 22px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: transform var(--transition-fast);
+}
+
+.bigbtn:hover {
+  transform: translateY(-2px);
+}
+
+.bigbtn:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+  align-items: center;
+  justify-content: space-between;
+}
+
+.counter {
+  font-family: var(--font-secondary);
+  font-weight: 900;
+  font-size: 14px;
+  background: #fff;
+  border: 4px solid var(--border);
+  border-radius: 999px;
+  padding: var(--space-sm) var(--space-md);
+  box-shadow: var(--shadow2);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.chip {
+  font-family: var(--font-secondary);
+  font-weight: 900;
+  font-size: 13px;
+  background: #fff;
+  border: 4px solid var(--border);
+  border-radius: 999px;
+  padding: var(--space-sm) var(--space-md);
+  box-shadow: var(--shadow2);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.chip b {
+  font-family: var(--font-primary);
+  font-size: 14px;
+  letter-spacing: 0.06em;
+}
+
+.tiny {
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.7);
+  font-weight: 900;
+}
+
+/* Section Components */
+.news-generator-section,
+.buy-section {
+  margin-top: var(--space-lg);
+  margin-bottom: var(--space-lg);
+}
+
+.news-generator-section .panel,
+.buy-section .panel {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+/* Bandera de Venezuela - Azul para MADURO MEME GENERATOR */
+.news-generator-section .panel-head {
+  background: linear-gradient(135deg, var(--blue) 0%, #1e3a8a 100%); /* Azul de la bandera venezolana */
+  color: #fff; /* Texto blanco */
+  text-align: center; /* Texto centrado */
+}
+
+/* Bandera de Venezuela - Rojo para BUY THE MEME COIN */
+.buy-section .panel-head {
+  background: linear-gradient(135deg, var(--red) 0%, #b91c1c 100%); /* Rojo de la bandera venezolana */
+}
+
+/* Panel Components */
+.panel {
+  border: 5px solid var(--border);
+  border-radius: calc(var(--radius) - 2px);
+  background: #fff;
+  box-shadow: var(--shadow2);
+  overflow: hidden;
+}
+
+.panel-head {
+  padding: var(--space-md) var(--space-md);
+  border-bottom: 5px solid var(--border);
+  background: var(--green);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-family: var(--font-primary);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+.panel-head span {
+  font-size: 18px;
+}
+
+.panel-body {
+  padding: var(--space-md);
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.06), transparent 55%),
+    #fff;
+}
+
+/* Form Elements */
+label {
+  font-family: var(--font-secondary);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 12px;
+  display: block;
+  margin-bottom: var(--space-sm);
+}
+
+select,
+input[type="range"] {
+  width: 100%;
+  padding: var(--space-md);
+  border: 4px solid var(--border);
+    border-radius: calc(var(--radius) - 2px);
+  background: #fff;
+  font-family: var(--font-secondary);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+select:focus,
+input[type="range"]:focus {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+/* Output Component */
+.out {
+  margin-top: var(--space-md);
+  border: 5px solid var(--border);
+    border-radius: calc(var(--radius) - 2px);
+  background: var(--paper);
+  box-shadow: var(--shadow2);
+  overflow: hidden;
+}
+
+.out-top {
+  padding: var(--space-sm) var(--space-md);
+  border-bottom: 5px solid var(--border);
+  background: var(--red);
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+.out-body {
+  padding: var(--space-md);
+}
+
+.headline {
+  margin: 0;
+  font-size: clamp(22px, 2.4vw, 30px);
+  line-height: 1.02;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.meta {
+  margin: var(--space-sm) 0 0;
+  font-family: var(--font-secondary);
+  font-weight: 900;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.75);
+}
+
+/* Button Group */
+.btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+}
+
+/* Button Component */
+.btn {
+  flex: 1;
+  min-width: 180px;
+  border: none;
+  border-radius: 20px;
+  background: var(--twitter-blue);
+  font-family: var(--font-primary);
+  font-weight: 700;
+  font-size: 15px;
+  padding: 12px 24px;
+  text-transform: none;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: var(--twitter-red);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(253, 199, 0, 0.3);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--yellow);
+  outline-offset: 2px;
+}
+
+.btn.alt {
+  background: #f0f0f0;
+  color: var(--ink);
+}
+
+.btn.purp {
+  background: #e0e0e0;
+  color: var(--ink);
+}
+
+.btn.green {
+  background: var(--green);
+  color: #fff;
+}
+
+.btn.yellow {
+  background: linear-gradient(135deg, var(--yellow) 0%, #f59e0b 100%);
+  color: var(--ink);
+}
+
+.btn.red {
+  background: var(--red);
+  color: #fff;
+}
+
+/* Footer */
+.footer {
+  margin-top: var(--space-lg);
+  border: 5px solid var(--border);
+  border-radius: var(--radius);
+  background: #fff;
+  box-shadow: var(--shadow2);
+  padding: var(--space-lg);
+  font-family: var(--font-secondary);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.72);
+}
+
+/* Breaking News TV Effects */
+@keyframes breakingNewsPulse {
+  0%, 100% {
+    box-shadow:
+      0 0 0 4px #111,
+      0 10px 30px rgba(0, 0, 0, 0.5),
+      inset 0 0 50px rgba(0, 0, 0, 0.8);
+  }
+  50% {
+    box-shadow:
+      0 0 0 4px #111,
+      0 10px 30px rgba(253, 199, 0, 0.3),
+      inset 0 0 50px rgba(253, 199, 0, 0.1),
+      0 0 20px rgba(253, 199, 0, 0.2);
+  }
+}
+
+@keyframes breakingNewsBorder {
+  0%, 100% {
+    border-color: var(--twitter-blue);
+    opacity: 0.3;
+  }
+  50% {
+    border-color: var(--twitter-red);
+    opacity: 0.8;
+  }
+}
+
+@keyframes breakingNewsBorderGold {
+  0%, 100% {
+    border-color: #FDC700;
+    opacity: 0.3;
+  }
+  50% {
+    border-color: #FDC700;
+    opacity: 0.8;
+  }
+}
+
+@keyframes liveBlink {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.05);
+  }
+}
+
+/* Live Chat Comments Overlay */
+.live-chat-overlay {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 300px;
+  height: 200px;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.live-chat-comment {
+  position: absolute;
+  right: 10px;
+  bottom: -30px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #ffffff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+  border-left: 3px solid #000000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  animation: commentSlideUp 4s ease-out forwards;
+  opacity: 0;
+}
+
+.live-chat-comment:nth-child(odd) {
+  border-left-color: var(--twitter-red);
+}
+
+.live-chat-comment:nth-child(3n) {
+  border-left-color: #16a34a;
+}
+
+@keyframes commentSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  90% {
+    opacity: 1;
+    transform: translateY(-180px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-200px);
+  }
+}
+
+/* Free Venezuela Banner */
+.free-venezuela-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: var(--twitter-blue);
+  color: #ffffff;
+  padding: 12px 4px;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 1px;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-bottom: 3px solid #000000;
+}
+
+.banner-content {
+  width: 100%;
+}
+
+.banner-text {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+@keyframes scrollBanner {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Adjust topbar position to account for banner */
+
+.topbar {
+  position: sticky;
+  top: 40px;
+  z-index: var(--z-topbar);
+  padding: 16px 24px;
+  background: #ffffff;
+  border-bottom: 2px solid var(--twitter-blue);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(12px);
+  max-width: 1200px;
+  margin: 50px auto 0 auto;
+  border-radius: 25px;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--ink);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 1.1em;
+}
+
+.x-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: var(--twitter-light);
+  color: var(--muted);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  margin-left: 8px;
+}
+
+.x-icon:hover {
+  background: var(--twitter-blue);
+  color: #ffffff;
+  transform: scale(1.05);
+}
+
+/* Enhanced Meme Generator UI */
+.meme-generator-section {
+  padding: 60px 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.meme-generator-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 4px;
+  background: linear-gradient(90deg, #000000, #000000);
+  border-radius: 2px;
+}
+
+.meme-generator-container {
+  background: linear-gradient(145deg, #1a1a1a 0%, #0a0a0a 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.meme-generator-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #000000, #000000, #000000);
+  background-size: 200% 100%;
+  animation: gradientShift 3s ease-in-out infinite;
+}
+
+.meme-generator-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 20px;
+  text-align: center;
+  background: linear-gradient(135deg, #10a37f 0%, #0d8f6b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+}
+
+.meme-generator-subtitle {
+  font-size: 14px;
+  color: #888888;
+  margin-bottom: 16px;
+  font-weight: 400;
+  text-align: center;
+  opacity: 0.7;
+}
+
+.meme-display {
+  background: #1a1a1a;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 20px;
+  min-height: 120px;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.meme-display::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #000000, #000000, #000000);
+  border-radius: 22px;
+  z-index: -1;
+  opacity: 0.3;
+  animation: borderGlow 2s ease-in-out infinite alternate;
+}
+
+.meme-content {
+  text-align: center;
+  color: #ffffff;
+  position: relative;
+  z-index: 1;
+}
+
+.meme-quote {
+  background: #2a2a2a;
+  color: #ffffff;
+  padding: 16px 20px;
+  border-radius: 18px;
+  border-bottom-left-radius: 4px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  margin: 0;
+  position: relative;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  max-width: 600px;
+}
+
+.meme-author {
+  font-size: 12px;
+  color: #888888;
+  margin-top: 8px;
+  font-weight: 500;
+}
+
+.meme-controls {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.meme-controls .btn {
+  min-width: 180px;
+  padding: 16px 32px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn.primary {
+  background: linear-gradient(135deg, #000000, #000000);
+  color: #ffffff;
+  box-shadow: 0 4px 16px rgba(29, 161, 242, 0.3);
+}
+
+.btn.primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.btn.primary:hover::before {
+  left: 100%;
+}
+
+.btn.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(29, 161, 242, 0.4);
+}
+
+.btn.secondary {
+  background: linear-gradient(135deg, #ffffff, #f8fafc);
+  color: var(--ink);
+  border: 2px solid var(--border);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.btn.secondary:hover {
+  background: linear-gradient(135deg, var(--twitter-light), #e0e7ff);
+  border-color: var(--twitter-blue);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(253, 199, 0, 0.15);
+}
+
+.meme-stats {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  opacity: 0.6;
+}
+
+.stat {
+  text-align: center;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stat:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(253, 199, 0, 0.1);
+}
+
+.stat-number {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 2px;
+}
+
+.stat-label {
+  font-size: 10px;
+  color: #888888;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 400;
+}
+
+/* Animations */
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes borderGlow {
+  0% { opacity: 0.3; }
+  100% { opacity: 0.6; }
+}
+
+@keyframes textGlow {
+  0% { text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); }
+  100% { text-shadow: 0 0 12px rgba(255, 255, 255, 0.5), 0 2px 4px rgba(0, 0, 0, 0.3); }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Enhanced Mobile Responsiveness */
+@media (max-width: 768px) {
+  .meme-generator-container {
+    padding: 32px 20px;
+    border-radius: 20px;
+  }
+
+  .meme-generator-title {
+    font-size: 28px;
+  }
+
+  .meme-generator-subtitle {
+    font-size: 16px;
+  }
+
+  .meme-display {
+    padding: 24px;
+    min-height: 120px;
+  }
+
+  .meme-quote {
+    font-size: 18px;
+  }
+
+  .meme-controls {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .meme-controls .btn {
+    width: 100%;
+    max-width: 300px;
+    padding: 14px 28px;
+  }
+
+  .meme-stats {
+    gap: 20px;
+  }
+
+  .stat {
+    padding: 16px;
+    min-width: 120px;
+  }
+
+  .stat-number {
+    font-size: 28px;
+  }
+}
+
+/* Contract Address Section */
+.contract-section {
+  padding: 40px 0 20px 0;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.contract-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 18px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contract-label {
+  font-weight: 600;
+  color: var(--muted);
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+
+.contract-address {
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', monospace;
+  font-size: 14px;
+  color: var(--ink);
+  background: transparent;
+  border: none;
+  outline: none;
+  flex: 1;
+  text-align: center;
+  word-break: break-all;
+  cursor: text;
+  user-select: text;
+}
+
+.copy-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: #ffffff;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.copy-btn:hover {
+  background: var(--twitter-blue);
+  color: #ffffff;
+  transform: scale(1.05);
+}
+
+.copy-btn:active {
+  transform: scale(0.95);
+}
+
+.copy-btn.copied {
+  background: #16a34a;
+  color: #ffffff;
+  border-color: #16a34a;
+}
+
+/* ChatGPT-Style Meme Generator */
+.chatgpt-section {
+  padding: 60px 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.chatgpt-container {
+  background: #000000;
+  border: 2px solid #333333;
+  border-radius: 16px;
+  box-shadow:
+    0 0 20px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Chat Header */
+.chat-header {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+  border-bottom: 2px solid #444444;
+  padding: 16px 20px;
+  position: relative;
+}
+
+.chat-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60"><defs><pattern id="grain" width="60" height="60" patternUnits="userSpaceOnUse"><circle cx="30" cy="30" r="1" fill="%23ffffff" opacity="0.03"/></pattern></defs><rect width="60" height="60" fill="url(%23grain)"/></svg>');
+  pointer-events: none;
+}
+
+.stream-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.stream-icon {
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  border: 2px solid #ffffff;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.stream-info {
+  flex: 1;
+}
+
+.stream-name {
+  font-weight: 700;
+  font-size: 16px;
+  color: #ffffff;
+  margin-bottom: 2px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.live-badge {
+  background: #ff4646;
+  color: #ffffff;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 700;
+  margin-left: 8px;
+  animation: pulse 2s infinite;
+}
+
+.stream-status {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* Chat Messages */
+.chat-messages {
+  max-height: 600px;
+  overflow-y: auto;
+  padding: 20px;
+  background: #000000;
+}
+
+.message-wrapper {
+  display: flex;
+  margin-bottom: 20px;
+  align-items: flex-start;
+  animation: glowPulse 3s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 5px rgba(145, 70, 255, 0.1); }
+  50% { box-shadow: 0 0 15px rgba(145, 70, 255, 0.2); }
+}
+
+.message-avatar {
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.chatgpt-icon-small {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, #666666 0%, #444444 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.message-content {
+  flex: 1;
+  max-width: calc(100% - 40px);
+  max-width: 800px;
+}
+
+.message-text {
+  background: #f7f9fa;
+  padding: 12px 16px;
+  border-radius: 16px;
+  border-bottom-left-radius: 4px;
+  color: #202123;
+  font-size: 14px;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.ai-message .message-text {
+  background: #f7f9fa;
+}
+
+.user-message {
+  flex-direction: row-reverse;
+}
+
+.user-message .message-avatar {
+  margin-right: 0;
+  margin-left: 12px;
+}
+
+.user-message .message-content {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.user-message .message-text {
+  background: #007aff;
+  color: #ffffff;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 4px;
+}
+
+.user-avatar {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.message-header {
+  margin-bottom: 4px;
+}
+
+.message-username {
+  font-size: 13px;
+  font-weight: 700;
+  color: #ffffff;
+  opacity: 0.9;
+}
+
+.random-message {
+  margin-bottom: 12px;
+}
+
+/* Meme Result */
+.meme-result {
+  margin: 20px 0;
+}
+
+.chatgpt-container .meme-content {
+  background: #1a1a1a !important;
+  color: #ffffff;
+  padding: 16px 20px;
+  border-radius: 18px;
+  border-bottom-left-radius: 4px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  margin: 0;
+  position: relative;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  max-width: 600px;
+  text-align: left;
+}
+
+.chatgpt-container .meme-content img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.meme-author {
+  font-size: 12px;
+  color: #888888;
+  margin-top: 8px;
+  margin-left: 0;
+  font-weight: 500;
+}
+
+.meme-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.reaction-buttons {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+}
+
+.reaction-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reaction-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: scale(1.1);
+}
+
+.reaction-btn:active,
+.reaction-btn.active {
+  background: rgba(255, 107, 107, 0.3);
+  border-color: #ff6b6b;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.meme-action-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.meme-action-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+/* Quick Options */
+.quick-commands {
+  padding: 16px 20px;
+  background: rgba(0, 0, 0, 0.9);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.command-btn {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.1) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  padding: 10px 14px;
+  border-radius: 24px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex: 1;
+  min-width: 130px;
+  position: relative;
+  overflow: hidden;
+}
+
+.command-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.command-btn:hover::before {
+  left: 100%;
+}
+
+.command-btn:hover {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.15) 100%);
+  border-color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+}
+
+.command-prefix {
+  color: #ff6b6b;
+  font-weight: 700;
+}
+
+.command-emoji {
+  margin-left: 6px;
+  font-size: 14px;
+}
+
+/* Chat Input */
+.chat-input-area {
+  padding: 16px 20px;
+  background: rgba(0, 0, 0, 0.9);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  padding: 12px 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.chat-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: 14px;
+  color: #ffffff;
+  outline: none;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.chat-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.input-buttons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.type-selector {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 6px 10px;
+  font-size: 12px;
+  color: #ffffff;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.send-btn {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(255, 107, 107, 0.4);
+}
+
+.send-btn:hover {
+  background: linear-gradient(135deg, #ee5a24 0%, #cc4618 100%);
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(255, 107, 107, 0.6);
+}
+
+/* Chat Stats */
+.chat-stats {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 16px 20px;
+  background: rgba(0, 0, 0, 0.9);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.chat-stats .stat {
+  text-align: center;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.chat-stats .stat-number {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 2px;
+}
+
+.chat-stats .stat-label {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+}

@@ -1,0 +1,13 @@
+# Robots.txt for NFTSOL.XYZ
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://nftsol.xyz/sitemap.xml
+
+# Crawl delay (optional)
+Crawl-delay: 1
+
+
+

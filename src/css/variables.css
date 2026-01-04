@@ -1,0 +1,49 @@
+/* CSS Custom Properties / Variables */
+:root {
+  /* Black and Gold Color Palette */
+  --bg: #f7f9fb;      /* Soft blue-gray background */
+  --ink: #000000;     /* Pure black text */
+  --muted: #000000;   /* Black muted text */
+  --paper: #ffffff;   /* White cards */
+  --border: #000000;  /* Black borders */
+
+  /* Black and Gold Brand Colors */
+  --twitter-blue: #000000;  /* Rich black */
+  --twitter-dark: #000000;  /* Pure black */
+  --twitter-light: #fff8e1; /* Very light gold */
+  --twitter-red: #000000;   /* Black */
+
+  /* UI Colors */
+  --border: #1b1b1f;
+  --shadow: 0 14px 0 rgba(0, 0, 0, .55);
+  --shadow2: 0 10px 0 rgba(0, 0, 0, .35);
+
+  /* Layout */
+  --radius: 32px;
+  --max-width: 1200px;
+
+  /* Typography - Harmonious Type System */
+  --font-primary: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-secondary: Georgia, "Times New Roman", Times, serif;
+  --font-mono: "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, "Courier New", monospace;
+
+  /* Spacing */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 12px;
+  --space-lg: 14px;
+  --space-xl: 16px;
+  --space-2xl: 18px;
+  --space-3xl: 20px;
+
+  /* Transitions */
+  --transition-fast: 0.12s ease;
+  --transition-normal: 0.18s ease;
+  --transition-slow: 0.3s ease;
+
+  /* Z-index */
+  --z-noise: 1;
+  --z-topbar: 30;
+  --z-modal: 100;
+  --z-tooltip: 200;
+}

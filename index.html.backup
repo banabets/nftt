@@ -1,0 +1,727 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NFTSOL.XYZ • TECH FLEECE INCIDENT • $NFT</title>
+  <meta name="description" content="SATIRE. NOT NEWS. MEMECOIN. ENTERTAINMENT ONLY." />
+
+  <style>
+    :root{
+      --bg:#f3efe6;
+      --ink:#101012;
+      --muted:#2a2a2f;
+      --paper:#fff8df;
+
+      --yellow:#ffd400;
+      --red:#ff2d55;
+      --green:#00ff7b;
+      --blue:#00d5ff;
+      --purple:#a855ff;
+
+      --border: #1b1b1f;
+      --shadow: 0 14px 0 rgba(0,0,0,.55);
+      --shadow2: 0 10px 0 rgba(0,0,0,.35);
+      --radius: 18px;
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      color:var(--ink);
+      background:
+        radial-gradient(900px 520px at 12% 8%, rgba(255,45,85,.14), transparent 60%),
+        radial-gradient(900px 520px at 88% 10%, rgba(0,213,255,.14), transparent 60%),
+        radial-gradient(900px 520px at 50% 90%, rgba(0,255,123,.10), transparent 62%),
+        linear-gradient(180deg, #f7f1e2 0%, #efe6d2 60%, #f7f1e2 100%);
+      overflow-x:hidden;
+      font-family: Impact, Haettenschweiler, "Arial Black", system-ui, -apple-system, Segoe UI, Roboto, Arial;
+    }
+
+    .noise{
+      pointer-events:none;
+      position:fixed;
+      inset:0;
+      opacity:.08;
+      mix-blend-mode:multiply;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.65'/%3E%3C/svg%3E");
+      background-size:260px 260px;
+    }
+
+    .wrap{
+      width:min(980px, 92vw);
+      margin:0 auto;
+      padding:18px 0 44px;
+    }
+
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:30;
+      padding:10px 0;
+      background:rgba(247,241,226,.72);
+      backdrop-filter: blur(10px);
+      border-bottom: 4px solid var(--border);
+    }
+
+    .topbar-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .site{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      font-size:16px;
+    }
+
+    .sat{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:8px 10px;
+      border: 3px solid var(--border);
+      background: var(--yellow);
+      box-shadow: var(--shadow2);
+      border-radius: 999px;
+      font-size:13px;
+      text-transform:uppercase;
+      letter-spacing:.06em;
+    }
+
+    .dot{
+      width:10px; height:10px; border-radius:99px;
+      background: var(--red);
+      border:2px solid var(--border);
+    }
+
+    .hero{
+      margin-top:16px;
+      border: 5px solid var(--border);
+      background: var(--yellow);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+      overflow:hidden;
+      position:relative;
+    }
+
+    .hero-top{
+      padding:18px 18px 10px;
+      border-bottom: 5px solid var(--border);
+      background:
+        linear-gradient(90deg, rgba(255,255,255,.10), transparent 40%),
+        linear-gradient(0deg, rgba(0,0,0,.08), transparent 50%),
+        var(--yellow);
+    }
+
+    .h1{
+      margin:0;
+      font-size: clamp(44px, 6vw, 86px);
+      line-height:.88;
+      letter-spacing:.02em;
+      text-transform:uppercase;
+      text-shadow: 6px 6px 0 rgba(0,0,0,.22);
+    }
+
+    .sub{
+      margin:10px 0 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.06em;
+      font-size:14px;
+      color: rgba(0,0,0,.78);
+    }
+
+    .hero-mid{
+      background: linear-gradient(180deg, rgba(255,255,255,.20), transparent 60%), #efe6d2;
+      padding:14px 16px 16px;
+      position:relative;
+    }
+
+    .poster{
+      border: 5px solid var(--border);
+      border-radius: 16px;
+      background: #faf7ee;
+      box-shadow: var(--shadow2);
+      overflow:hidden;
+      position:relative;
+    }
+
+    .poster-inner{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:0;
+      min-height: 280px;
+    }
+
+    @media (max-width: 860px){
+      .poster-inner{ grid-template-columns:1fr; }
+    }
+
+    .poster-left{
+      padding:14px;
+      position:relative;
+      background:
+        radial-gradient(520px 280px at 30% 30%, rgba(0,0,0,.12), transparent 60%),
+        radial-gradient(520px 280px at 80% 60%, rgba(0,0,0,.10), transparent 62%),
+        linear-gradient(180deg, rgba(0,0,0,.06), transparent 50%),
+        #dcd4c5;
+      border-right: 5px solid var(--border);
+    }
+    @media (max-width: 860px){
+      .poster-left{ border-right:none; border-bottom:5px solid var(--border); }
+    }
+
+    .silhouette{
+      width:100%;
+      height:100%;
+      min-height:250px;
+      border-radius: 14px;
+      border: 4px solid rgba(0,0,0,.75);
+      background:
+        radial-gradient(240px 160px at 35% 30%, rgba(255,255,255,.12), transparent 60%),
+        radial-gradient(260px 180px at 60% 75%, rgba(255,255,255,.12), transparent 62%),
+        linear-gradient(135deg, rgba(0,0,0,.55), rgba(0,0,0,.78)),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='500'%3E%3Crect width='800' height='500' fill='%23111113'/%3E%3Cpath d='M390 80c55 0 105 40 105 92 0 35-16 55-26 70 20 25 42 62 46 116 6 88-55 118-125 118s-131-30-125-118c4-54 26-91 46-116-10-15-26-35-26-70 0-52 50-92 105-92Z' fill='%23222226'/%3E%3Cpath d='M335 170c20-22 40-34 55-34s35 12 55 34c-15 10-38 20-55 20s-40-10-55-20Z' fill='%2317171b'/%3E%3Cpath d='M310 280c10-42 52-68 80-68s70 26 80 68c-25 20-56 30-80 30s-55-10-80-30Z' fill='%23151519'/%3E%3C/svg%3E");
+      background-size: cover;
+      background-position: center;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .stickers{
+      position:absolute;
+      inset:10px;
+      pointer-events:none;
+    }
+
+    .st{
+      position:absolute;
+      padding:10px 12px;
+      border: 4px solid var(--border);
+      border-radius: 16px;
+      box-shadow: var(--shadow2);
+      transform: rotate(-6deg);
+      text-transform:uppercase;
+      letter-spacing:.06em;
+      font-size:14px;
+      background:#fff;
+    }
+    .st.one{ left:10px; top:12px; background: #fff; }
+    .st.two{ right:10px; top:16px; background: #d9ffef; transform: rotate(7deg); }
+    .st.three{ left:14px; bottom:14px; background: #ffe5ee; transform: rotate(9deg); }
+
+    .poster-right{
+      padding:14px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.12), transparent 55%),
+        #faf7ee;
+      position:relative;
+    }
+
+    .bigbtn{
+      width:100%;
+      border: 5px solid var(--border);
+      border-radius: 18px;
+      background: var(--red);
+      color:#fff;
+      padding: 16px 14px;
+      font-size: 22px;
+      text-transform:uppercase;
+      letter-spacing:.06em;
+      box-shadow: var(--shadow);
+      cursor:pointer;
+      transition: transform .12s ease;
+    }
+    .bigbtn:hover{ transform: translateY(-2px); }
+
+    .row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:12px;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .counter{
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      font-weight:900;
+      font-size:14px;
+      background:#fff;
+      border: 4px solid var(--border);
+      border-radius: 999px;
+      padding:10px 12px;
+      box-shadow: var(--shadow2);
+      text-transform:uppercase;
+      letter-spacing:.05em;
+    }
+
+    .chip{
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      font-weight:900;
+      font-size:13px;
+      background:#fff;
+      border: 4px solid var(--border);
+      border-radius: 999px;
+      padding:10px 12px;
+      box-shadow: var(--shadow2);
+      text-transform:uppercase;
+      letter-spacing:.05em;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+    }
+
+    .chip b{
+      font-family: Impact, Haettenschweiler, "Arial Black";
+      font-size:14px;
+      letter-spacing:.06em;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+      margin-top:14px;
+    }
+    @media (max-width: 860px){
+      .grid{ grid-template-columns:1fr; }
+    }
+
+    .panel{
+      border: 5px solid var(--border);
+      border-radius: 16px;
+      background: #fff;
+      box-shadow: var(--shadow2);
+      overflow:hidden;
+    }
+
+    .panel-head{
+      padding:12px 12px;
+      border-bottom: 5px solid var(--border);
+      background: var(--green);
+      text-transform:uppercase;
+      letter-spacing:.06em;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .panel-head span{
+      font-size:18px;
+    }
+
+    .panel-body{
+      padding:12px;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.06), transparent 55%),
+        #fff;
+    }
+
+    label{
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.06em;
+      font-size:12px;
+      display:block;
+      margin-bottom:8px;
+    }
+
+    select, input[type="range"]{
+      width:100%;
+      padding:12px;
+      border: 4px solid var(--border);
+      border-radius: 14px;
+      background: #fff;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.04em;
+    }
+
+    .out{
+      margin-top:12px;
+      border: 5px solid var(--border);
+      border-radius: 16px;
+      background: var(--paper);
+      box-shadow: var(--shadow2);
+      overflow:hidden;
+    }
+
+    .out-top{
+      padding:10px 12px;
+      border-bottom: 5px solid var(--border);
+      background: var(--red);
+      color:#fff;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .out-body{
+      padding:12px;
+    }
+
+    .headline{
+      margin:0;
+      font-size: clamp(22px, 2.4vw, 30px);
+      line-height:1.02;
+      text-transform:uppercase;
+      letter-spacing:.02em;
+    }
+
+    .meta{
+      margin:10px 0 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      font-weight:900;
+      font-size:12px;
+      letter-spacing:.05em;
+      text-transform:uppercase;
+      color: rgba(0,0,0,.75);
+    }
+
+    .btns{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:12px;
+    }
+
+    .btn{
+      flex:1;
+      min-width: 210px;
+      border: 5px solid var(--border);
+      border-radius: 16px;
+      background: var(--blue);
+      color:#001018;
+      padding: 14px 12px;
+      font-size: 16px;
+      text-transform:uppercase;
+      letter-spacing:.06em;
+      box-shadow: var(--shadow2);
+      cursor:pointer;
+      transition: transform .12s ease;
+    }
+    .btn:hover{ transform: translateY(-2px); }
+
+    .btn.alt{ background: #fff; }
+    .btn.purp{ background: var(--purple); color:#fff; }
+    .btn.green{ background: var(--green); }
+    .btn.yellow{ background: var(--yellow); }
+
+    .footer{
+      margin-top:14px;
+      border: 5px solid var(--border);
+      border-radius: var(--radius);
+      background: #fff;
+      box-shadow: var(--shadow2);
+      padding:14px;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.06em;
+      font-size:12px;
+      color: rgba(0,0,0,.72);
+    }
+
+    .tiny{
+      font-size:12px;
+      color: rgba(0,0,0,.70);
+      font-weight:900;
+    }
+
+    .shake{
+      animation: shake .18s linear 1;
+    }
+    @keyframes shake{
+      0%{ transform: translateX(0); }
+      25%{ transform: translateX(-4px); }
+      50%{ transform: translateX(4px); }
+      75%{ transform: translateX(-3px); }
+      100%{ transform: translateX(0); }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="noise"></div>
+
+  <div class="topbar">
+    <div class="wrap">
+      <div class="topbar-inner">
+        <div class="site">
+          <b>NFTSOL.XYZ</b>
+          <span class="chip" title="Token symbol"><b>$NFT</b> Nike Fleece Tech</span>
+        </div>
+        <div class="sat"><span class="dot"></span> SATIRE • NOT NEWS • MEMECOIN • ENTERTAINMENT ONLY</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+
+    <section class="hero">
+      <div class="hero-top">
+        <h1 class="h1">TECH FLEECE<br/>INCIDENT</h1>
+        <p class="sub">An internet rumor simulator. No claims. Just chaos.</p>
+      </div>
+
+      <div class="hero-mid">
+        <div class="poster">
+          <div class="poster-inner">
+
+            <div class="poster-left">
+              <div class="silhouette" aria-hidden="true">
+                <div class="stickers">
+                  <div class="st one">100% REAL (NOT)</div>
+                  <div class="st two">OFFICIAL MEME INTEL</div>
+                  <div class="st three">CERTIFIED CHAOS</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="poster-right">
+              <button class="bigbtn" id="genTop">GENERATE THE RUMOR</button>
+
+              <div class="row">
+                <div class="counter" id="count">Rumors generated today: 8,912</div>
+                <div class="chip"><b>STATUS</b> UNCONFIRMED</div>
+              </div>
+
+              <div class="row">
+                <div class="chip" style="background:#ffe5ee;"><b>SOURCE</b> GROUP CHAT</div>
+                <div class="chip" style="background:#d9ffef;"><b>QUALITY</b> 240P</div>
+              </div>
+
+              <div class="row">
+                <div class="chip" style="background:#fff8df;"><b>PROOF</b> JUST VIBES</div>
+                <div class="chip" style="background:#e7dbff;"><b>CONFIDENCE</b> 97%</div>
+              </div>
+
+              <div class="row">
+                <button class="btn yellow" id="scrollToMachine">GO TO RUMOR MACHINE</button>
+              </div>
+
+              <p class="tiny" style="margin:10px 0 0;">
+                No real claims. No real evidence. It’s a meme machine.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid" id="machine">
+
+      <div class="panel">
+        <div class="panel-head">
+          <span>RUMOR MACHINE</span>
+          <span>$NFT</span>
+        </div>
+        <div class="panel-body">
+          <label for="src">Source selector</label>
+          <select id="src">
+            <option value="Group chat">Group chat</option>
+            <option value="TikTok comments">TikTok comments</option>
+            <option value="X timeline">X timeline</option>
+            <option value="Telegram forward">Telegram forward</option>
+            <option value="My cousin">My cousin</option>
+            <option value="AI generated">AI generated</option>
+          </select>
+
+          <div style="height:12px;"></div>
+
+          <label for="conf">Confidence slider</label>
+          <input id="conf" type="range" min="0" max="100" value="97" />
+
+          <div class="out" id="out">
+            <div class="out-top">
+              <span>SATIRE CONTENT</span>
+              <span id="confTxt">CONFIDENCE 97%</span>
+            </div>
+            <div class="out-body">
+              <p class="headline" id="headline">ALLEGEDLY: THE INTERNET SAYS THE OUTFIT DID IT.</p>
+              <p class="meta" id="meta">Source: Group chat • Evidence: none • This is satire</p>
+
+              <div class="btns">
+                <button class="btn green" id="gen">MAKE THIS MEME</button>
+                <button class="btn alt" id="copyCaption">COPY SCREENSHOT CAPTION</button>
+                <button class="btn purp" id="copyLink">COPY LINK</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer">
+            Reminder: SATIRE PROJECT. NOT NEWS. MEMECOIN. ENTERTAINMENT ONLY.
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head" style="background: var(--blue);">
+          <span>BUY THE MEME COIN</span>
+          <span>NIKE FLEECE TECH</span>
+        </div>
+        <div class="panel-body">
+          <p class="meta" style="margin-top:0;">
+            This site is a joke. The coin is a meme. Zero utility. Maximum chaos.
+          </p>
+
+          <button class="btn red" id="buy" style="background: var(--red); color:#fff;">BUY ON PUMP FUN</button>
+
+          <div style="height:12px;"></div>
+
+          <div class="panel" style="border-width:4px;">
+            <div class="panel-head" style="background: var(--yellow);">
+              <span>LEGALISH DISCLAIMER</span>
+              <span>READ IT</span>
+            </div>
+            <div class="panel-body">
+              <p class="meta" style="margin-top:0;">
+                This is satire and entertainment. It makes no factual claims about real events or real people.
+                Any resemblance is coincidental. Don’t be weird.
+              </p>
+            </div>
+          </div>
+
+          <div style="height:12px;"></div>
+
+          <div class="footer">
+            Token: Nike Fleece Tech • Symbol: $NFT • Site: nftsol.xyz
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <script>
+    const siteUrl = "https://nftsol.xyz";
+    const tokenName = "Nike Fleece Tech";
+    const tokenSymbol = "NFT";
+
+    // Put your real pump.fun URL here when you have it
+    const pumpFunUrl = "https://pump.fun/";
+
+    const $ = (id) => document.getElementById(id);
+
+    function formatNumber(n){
+      return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+
+    // Fake counter
+    let base = 8912;
+    setInterval(() => {
+      base += Math.floor(Math.random() * 3); // 0-2
+      $("count").textContent = "Rumors generated today: " + formatNumber(base);
+    }, 1800);
+
+    const templates = [
+      "ALLEGEDLY: THE INTERNET SAYS THE OUTFIT DID IT.",
+      "GROUP CHAT CLAIMS: THE HOODIE HAS ITS OWN PR TEAM.",
+      "THE TIMELINE SAYS: IF IT LOOKS LIKE A DROP, IT MUST BE TRUE (NOT).",
+      "ALLEGEDLY: 240P VIDEO, 1000P CONFIDENCE, ZERO PROOF.",
+      "THE INTERNET SAYS: TRUST ME BRO IS A VERIFIED SOURCE.",
+      "GROUP CHAT CLAIMS: THE FIT CHECK STARTED A WHOLE INCIDENT.",
+      "ALLEGEDLY: SOMEONE SAW A SCREENSHOT WITH A RED CIRCLE, SO IT’S REAL (NOT).",
+      "THE TIMELINE SAYS: NO PROOF, JUST VIBES, AND A LOT OF CAPS LOCK."
+    ];
+
+    const evidence = [
+      "Evidence: none",
+      "Evidence: screenshot with arrows",
+      "Evidence: dramatic music",
+      "Evidence: comment section",
+      "Evidence: forwarded voice note",
+      "Evidence: trust me bro"
+    ];
+
+    function genRumor(){
+      const src = $("src").value;
+      const c = Number($("conf").value);
+
+      const head = templates[Math.floor(Math.random() * templates.length)];
+      const ev = evidence[Math.floor(Math.random() * evidence.length)];
+
+      $("headline").textContent = head;
+      $("confTxt").textContent = "CONFIDENCE " + c + "%";
+      $("meta").textContent = "Source: " + src + " • " + ev + " • This is satire";
+
+      $("out").classList.remove("shake");
+      void $("out").offsetWidth;
+      $("out").classList.add("shake");
+    }
+
+    $("gen").addEventListener("click", genRumor);
+    $("genTop").addEventListener("click", () => {
+      genRumor();
+      document.querySelector("#machine").scrollIntoView({ behavior: "smooth" });
+    });
+
+    $("scrollToMachine").addEventListener("click", () => {
+      document.querySelector("#machine").scrollIntoView({ behavior: "smooth" });
+    });
+
+    $("conf").addEventListener("input", () => {
+      $("confTxt").textContent = "CONFIDENCE " + $("conf").value + "%";
+    });
+
+    $("copyLink").addEventListener("click", async () => {
+      try{
+        await navigator.clipboard.writeText(siteUrl);
+        $("copyLink").textContent = "COPIED";
+        setTimeout(() => $("copyLink").textContent = "COPY LINK", 900);
+      } catch {
+        alert(siteUrl);
+      }
+    });
+
+    $("copyCaption").addEventListener("click", async () => {
+      const src = $("src").value;
+      const c = $("conf").value;
+      const head = $("headline").textContent;
+
+      const caption =
+        head.toLowerCase() + "\n" +
+        "source: " + src.toLowerCase() + "\n" +
+        "confidence: " + c + "%\n" +
+        "$" + tokenSymbol + " • " + tokenName + "\n" +
+        siteUrl + "\n" +
+        "satire not news";
+
+      try{
+        await navigator.clipboard.writeText(caption);
+        $("copyCaption").textContent = "COPIED";
+        setTimeout(() => $("copyCaption").textContent = "COPY SCREENSHOT CAPTION", 900);
+      } catch {
+        alert(caption);
+      }
+    });
+
+    $("buy").addEventListener("click", () => {
+      window.open(pumpFunUrl, "_blank", "noopener,noreferrer");
+    });
+
+    // First load
+    genRumor();
+  </script>
+</body>
+</html>
