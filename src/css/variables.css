@@ -13,6 +13,13 @@
   --twitter-light: #fff8e1; /* Very light gold */
   --twitter-red: #000000;   /* Black */
 
+  /* Color Variables */
+  --yellow: #fbbf24;        /* Gold/Yellow */
+  --red: #dc2626;           /* Red */
+  --blue: #2563eb;          /* Blue */
+  --green: #16a34a;         /* Green */
+  --text: #000000;          /* Text color */
+
   /* UI Colors */
   --border: #1b1b1f;
   --shadow: 0 14px 0 rgba(0, 0, 0, .55);
