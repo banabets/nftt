@@ -2160,6 +2160,39 @@ input[type="range"]:focus {
   background: #000000;
 }
 
+/* Custom Scrollbar for Chat Messages */
+.chat-messages::-webkit-scrollbar {
+  width: 12px;
+}
+
+.chat-messages::-webkit-scrollbar-track {
+  background: #1a1a1a;
+  border-radius: 10px;
+  border: 1px solid #333333;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 50%, #fbbf24 100%);
+  border-radius: 10px;
+  border: 2px solid #1a1a1a;
+  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.3);
+}
+
+.chat-messages::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 50%, #fcd34d 100%);
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.5);
+}
+
+.chat-messages::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(135deg, #b91c1c 0%, #991b1b 50%, #f59e0b 100%);
+}
+
+/* Firefox Scrollbar */
+.chat-messages {
+  scrollbar-width: thin;
+  scrollbar-color: #dc2626 #1a1a1a;
+}
+
 .message-wrapper {
   display: flex;
   margin-bottom: 20px;
